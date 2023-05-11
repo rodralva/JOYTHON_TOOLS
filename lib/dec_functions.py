@@ -13,11 +13,11 @@ def gauss(x, sigma, n, mean = 0, norm = 1):
     y[0]=0;
     return y
 
-def deconvolve(ADCs:np.ndarray,SER:np.ndarray,FILTER=[])->np.ndarray:
+def deconvolve(ADCs:np.ndarray,SER:np.ndarray,FILTER=None)->np.ndarray:
     ADCs_dec=np.zeros(ADCs.shape)
     ped=250;
     SER_FFT=np.fft.rfft(SER)
-    if  len(FILTER)==0:
+    if  FILTER is None:
         for i in range(ADCs.shape[0]):
             wvf=np.fft.irfft((np.fft.rfft (ADCs[i])/SER_FFT))
             ADCs_dec[i]=wvf
