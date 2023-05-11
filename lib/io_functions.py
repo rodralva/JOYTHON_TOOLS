@@ -7,7 +7,7 @@ import sys
 sys.path.insert(0, '../')
 
 
-def open_run_var(run_path,var_name,channels,compressed=True,DEBUG=False):
+def open_run_var(run_path:str,var_name:str,channels,compressed=True,DEBUG=False):
 
     run_var=dict();
 

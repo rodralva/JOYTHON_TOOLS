@@ -3,7 +3,7 @@ import pandas as pd
 import gc #garbage collector interface
 import os
 
-def Bin2Np_ADC(FileName,header_lines=6):
+def Bin2Np_ADC(FileName:str,header_lines:int=6):
     """Dumps ADC binary .dat file with given header lines(6) and wvf size defined in header. \n
     Returns a npy array with Raw Wvf 
     If binary files are modified(header/data types), ask your local engineer"""
@@ -40,7 +40,7 @@ def Bin2Np_ADC(FileName,header_lines=6):
     return data , TIMESTAMP;
 
 
-def save_Bin2Np(file_in,file_out,compressed=True,file_timestamp="Timestamp"):
+def save_Bin2Np(file_in:str,file_out:str,compressed=True,file_timestamp="Timestamp"):
     """Self-explainatory. Computation time x10 slower than un-compresed, size x3 times smaller"""
     data_npy, timestamp = Bin2Np_ADC(file_in)
     if compressed:
@@ -53,8 +53,8 @@ def save_Bin2Np(file_in,file_out,compressed=True,file_timestamp="Timestamp"):
     del data_npy,timestamp #free memory
     gc.collect()
 
-def save_Run_Bin2Np(Run,Channel,in_path="../data/raw/",out_path="../data/raw/",out_name="RawADC",Compressed=True) :
-    """Run is an int, channel is an int array. In/out paths are strings."""
+def save_Run_Bin2Np(Run:int,Channel,in_path:str="../data/raw/",out_path:str="../data/raw/",out_name:str="RawADC",Compressed:bool=True) :
+    """Run is an int, channel is an int array/list. In/out paths are strings."""
     os.system("mkdir -p " + out_path+"run"+str(Run).zfill(2)+"/") # create output folder if not present
     for ch in Channel:
         inchan  = in_path+"run"+str(Run).zfill(2)+"/wave"+str(ch)+".dat"
