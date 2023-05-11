@@ -14,6 +14,7 @@ def gauss(x, sigma, n, mean = 0, norm = 1):
     return y
 
 def deconvolve(ADCs:np.ndarray,SER:np.ndarray,FILTER=None,CPUs:int=6)->np.ndarray:
+    """Be careful with the number of CPUs, it can crash your computer if you use too many."""
     ADCs_dec=np.zeros(ADCs.shape)
     ped=250;
     SER_FFT=np.fft.rfft(SER)
