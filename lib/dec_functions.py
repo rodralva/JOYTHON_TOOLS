@@ -1,6 +1,6 @@
 import numpy as np
-import numexpr as ne
 ##For now, numba doesn't support np.fft, stay tunned for this: https://github.com/numba/numba/issues/5864
+from scipy.fft import rfft, irfft  #10k ~4s
 
 #custom function for the filter
 def gauss(x, sigma, n, mean = 0, norm = 1):
@@ -13,18 +13,14 @@ def gauss(x, sigma, n, mean = 0, norm = 1):
     y[0]=0;
     return y
 
-def deconvolve(ADCs:np.ndarray,SER:np.ndarray,FILTER=None)->np.ndarray:
+def deconvolve(ADCs:np.ndarray,SER:np.ndarray,FILTER=None,CPUs:int=6)->np.ndarray:
     ADCs_dec=np.zeros(ADCs.shape)
     ped=250;
     SER_FFT=np.fft.rfft(SER)
     if  FILTER is None:
-        for i in range(ADCs.shape[0]):
-            wvf=np.fft.irfft((np.fft.rfft (ADCs[i])/SER_FFT))
-            ADCs_dec[i]=wvf
+        ADCs_dec=irfft(rfft(ADCs,axis=1)*FILTER/rfft(SER_FFT),axis=1,workers=CPUs)
     else:
-        for i in range(ADCs.shape[0]):
-            wvf=np.fft.irfft((np.fft.rfft (ADCs[i])/SER_FFT)*FILTER)
-            ADCs_dec[i]=wvf
+        ADCs_dec=irfft(rfft(ADCs,axis=1)/rfft(SER_FFT),axis=1,workers=CPUs)
 
     return ADCs_dec;
 
