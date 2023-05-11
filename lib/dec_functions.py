@@ -26,11 +26,6 @@ def deconvolve(ADCs:np.ndarray,SER:np.ndarray,FILTER=None)->np.ndarray:
             wvf=np.fft.irfft((np.fft.rfft (ADCs[i])/SER_FFT)*FILTER)
             ADCs_dec[i]=wvf
 
-    #substract pedestal again
-    a=ADCs_dec.T
-    b=np.mean(ADCs_dec[:,:ped],axis=1).T
-    ADCs_dec=ne.evaluate( '(a-b)').T #optimizing, multithreading
-
     return ADCs_dec;
 
 #Framework interface, not debugged yet
