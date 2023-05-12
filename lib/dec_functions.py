@@ -18,9 +18,9 @@ def deconvolve(ADCs:np.ndarray,SER:np.ndarray,FILTER=None,CPUs:int=6)->np.ndarra
     ADCs_dec=np.zeros(ADCs.shape)
     SER_FFT=np.fft.rfft(SER)
     if  FILTER is None:
-        ADCs_dec=irfft(rfft(ADCs,axis=1)/SER_FFT,axis=1,workers=CPUs)
+        ADCs_dec=irfft(rfft(ADCs,axis=1,workers=CPUs)/SER_FFT,axis=1,workers=CPUs)
     else:
-        ADCs_dec=irfft(rfft(ADCs,axis=1)*FILTER/SER_FFT,axis=1,workers=CPUs)
+        ADCs_dec=irfft(rfft(ADCs,axis=1,workers=CPUs)*FILTER/SER_FFT,axis=1,workers=CPUs)
 
     return ADCs_dec;
 
