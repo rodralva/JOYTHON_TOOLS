@@ -51,7 +51,7 @@ def open_runs_table(excel_file_path="",sheet='Sheet1'):
     df = pd.read_excel(excel_file_path, sheet_name=sheet,engine='openpyxl')
     df['Channels']    = df['Channels']   .apply(lambda x: list(map(int,x.split(" ")))) #excell only allows one value per cell, convert channels from string to array of ints
     df['Polarity']    = df['Polarity']   .apply(lambda x: list(map(int,x.split(" "))))
-    df['OverVoltage']    = df['OverVoltage']   .apply(lambda x: list(map(float,x.split(" "))))
+    # df['OverVoltage']    = df['OverVoltage']   .apply(lambda x: np.array(list(map(float,x.split(" ")))) ) #using sepparated columns for SiPM and XA OVs now
     df['ChannelName'] = df['ChannelName'].apply(lambda x: x.split(" "))
     df["Polarity"]=df.apply(lambda x: dict(zip(x["Channels"],x["Polarity"])),axis=1)
 
