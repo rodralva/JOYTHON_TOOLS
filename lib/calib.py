@@ -9,7 +9,7 @@ def GetGains(WEEK,OV,MODE="PE"):
     SAMPLING=4e-9
     BITS= 16384
     DYNAMIC_RANGE= 2
-    AMP= np.array([250,250,250,250,1030])
+    AMP= np.array([250,250,250,250,1560])
     e_charge=1.60217663 * 1e-19
 
     #                           ADCs to V     ticks to sec          C to e-      still need to correct by Gain of specific run
