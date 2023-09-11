@@ -35,7 +35,7 @@ def compute_ChargeRange(ADC,low=250,high=2000):
     # Mixed approach (peakfinder-like), in given range, look for max above threshold (SPE), 
     # then integrate the pulse until tolerance relative amplitude to the max is found, 
     # then look for next peak and repeat until no peak above threshold is found
-    charge_vars["PeakFinderInRange"]=fin_peaks_above_threshold_and_sum_near_maximum(shifted,relative_amplitude=0.01,threshold=12,bmin=800,bmax=1100)
+    charge_vars["PeakFinderInRange"]=fin_peaks_above_threshold_and_sum_near_maximum(shifted,relative_amplitude=0.01,threshold=12,bmin=800,bmax=2000)
     return charge_vars;
 
 
