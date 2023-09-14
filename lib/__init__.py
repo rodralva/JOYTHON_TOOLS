@@ -20,3 +20,5 @@ from .ped_functions    import *
 from .charge_functions import *
 from .vis_functions    import *
 from .calib    import *
+
+from .matplotlib_style import *
