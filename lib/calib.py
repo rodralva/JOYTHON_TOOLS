@@ -9,8 +9,7 @@ def GetGains(WEEK,CH,OV,MODE="PE"):
     SAMPLING=4e-9
     BITS= 16384
     DYNAMIC_RANGE= 2
-    AMP= np.array([250,250,250,250,1560])
-    e_charge=1.60217663 * 1e-19
+    AMP= np.array([250,250,250,250,1560]) ## this is not true, the Amp is this /50 Ohms  from the ADC  resistance. Antonio includes the 50 Ohms in the ADC  in the measure. THIS IS NOT the amp,  which would be for exmaple: 250 Ohms/50 Ohms = 5s
 
     #                           ADCs to V     ticks to sec          C to e-      still need to correct by Gain of specific run
     ADCxTicks2e=       DYNAMIC_RANGE/BITS     * SAMPLING  / AMP  /e_charge
