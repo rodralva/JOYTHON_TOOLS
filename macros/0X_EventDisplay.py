@@ -29,7 +29,8 @@ else          : EV=0
 RAW=False
 compress=False
 
-path="/media/rodrigoa/DiscoDuro/SBND_XA_PDE/APSAIA_VUV/joython/"
+# path="/media/rodrigoa/DiscoDuro/SBND_XA_PDE/APSAIA_VUV/joython/"
+path="/scr/neutrinos/rodrigoa/APSAIA_VUV/joython/"
 Runs=open_runs_table("APSAIA_VUV.xlsx")
 RunProps=Runs[Runs["Run"]==RUN].iloc[0]
 run_path=path+"run"+str(RunProps["Run"]).zfill(2)+"/";
