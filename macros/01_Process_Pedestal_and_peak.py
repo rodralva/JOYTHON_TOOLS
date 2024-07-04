@@ -24,7 +24,9 @@ WEEK=args.Week;
 # WEEK="DAPHNE_VIS"   # 3rd  week 
 # WEEK="DAPHNE_VUV"   # 4th  week 
 # WEEK="APSAIA_VUV_2" # 5th  week 
-path="/scr/neutrinos/rodrigoa/"+WEEK+"/joython/"
+# path="/scr/neutrinos/rodrigoa/"+WEEK+"/joython/"
+path="/pc/choozdsk01/users/romeo/LAB/"+WEEK+"/joython/"
+
 Runs=open_runs_table("../macros/"+WEEK+".xlsx")
 Runs=Runs[Runs["Run"]==int(args.Run)]
 

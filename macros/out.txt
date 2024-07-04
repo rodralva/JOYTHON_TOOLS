@@ -1,2 +1,13 @@
 Seq	Host	Starttime	JobRuntime	Send	Receive	Exitval	Signal	Command
-1	:	1683741816.174	    36.395	0	2920	0	0	python3 01_Process_Pedestal_and_peak.py -w APSAIA_VUV -r 0
+2	:	1720097686.336	    56.015	0	1175	0	0	python3 03_Raw_Charges.py -w APSAIA_VIS_2 -r 2
+1	:	1720097686.331	    56.758	0	1175	0	0	python3 03_Raw_Charges.py -w APSAIA_VIS_2 -r 1
+7	:	1720097686.354	    58.768	0	1175	0	0	python3 03_Raw_Charges.py -w APSAIA_VIS_2 -r 7
+3	:	1720097686.340	    60.919	0	1175	0	0	python3 03_Raw_Charges.py -w APSAIA_VIS_2 -r 3
+5	:	1720097686.347	    61.654	0	1175	0	0	python3 03_Raw_Charges.py -w APSAIA_VIS_2 -r 5
+6	:	1720097686.351	    62.251	0	1175	0	0	python3 03_Raw_Charges.py -w APSAIA_VIS_2 -r 6
+8	:	1720097686.358	    63.134	0	1175	0	0	python3 03_Raw_Charges.py -w APSAIA_VIS_2 -r 8
+4	:	1720097686.344	    64.507	0	1175	0	0	python3 03_Raw_Charges.py -w APSAIA_VIS_2 -r 4
+10	:	1720097743.109	    47.055	0	1175	0	0	python3 03_Raw_Charges.py -w APSAIA_VIS_2 -r 10
+9	:	1720097742.358	    48.227	0	1175	0	0	python3 03_Raw_Charges.py -w APSAIA_VIS_2 -r 9
+11	:	1720097745.141	    45.494	0	1175	0	0	python3 03_Raw_Charges.py -w APSAIA_VIS_2 -r 11
+12	:	1720097747.264	    44.742	0	1175	0	0	python3 03_Raw_Charges.py -w APSAIA_VIS_2 -r 12
